@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<link href="http://fonts.cdnfonts.com/css/arcade-classic" rel="stylesheet">
+
+<head>
+    <title>Mech Scan</title>
+    <meta charset="utf-8" />
+
+<body>
+    <h1 id="title">YVH Combat droid</h1>
+    <aside>
+        <h2>Target protocols:</h2>
+        <input type="checkbox" id="closest-enemies" name="protocols" value="closest-enemies">
+        <label for="closest-enemies"> Closest-enemies</label><br>
+        <input type="checkbox" id="furthest-enemies" name="protocols" value="furthest-enemies">
+        <label for="furthest-enemies"> Furthest-enemies</label><br>
+        <input type="checkbox" id="assist-allies" name="protocols" value="assist-allies">
+        <label for="assist-allies"> Assist-allies</label><br>
+        <input type="checkbox" id="avoid-crossfire" name="protocols" value="avoid-crossfire">
+        <label for="avoid-crossfire"> Avoid-crossfire</label><br>
+        <input type="checkbox" id="prioritize-mech" name="protocols" value="prioritize-mech">
+        <label for="prioritize-mech"> Prioritize-mech</label><br>
+        <input type="checkbox" id="avoid-mech" name="protocols" value="avoid-mech">
+        <label for="avoid-mech"> Avoid-mech</label><br><br>
+        <button id="GetCoordsBtn">Get target</button>
+    </aside>
+    <div id="canvas3d"></div>
+</body>
+
+</html>

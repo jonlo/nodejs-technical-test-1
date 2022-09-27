@@ -1,0 +1,81 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "deploy backend",
+			"type": "shell",
+			"options": {
+				"cwd": "${workspaceFolder}/${config:backendPath}",
+			},
+			"command": "npm run dev",
+			"isBackground": true,
+			"presentation": {
+				"reveal": "always",
+				"panel": "new",
+				"group": "dev"
+			},
+			"problemMatcher": {
+				"owner": "node",
+				"pattern": {
+					"regexp": "[\\s\\S]*"
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "[\\s\\S]listening[\\s\\S]*",
+					"endsPattern": "[\\s\\S]*listening[\\s\\S]*"
+				}
+			},
+		},
+		{
+			"label": "deploy frontend",
+			"type": "shell",
+			"options": {
+				"cwd": "${workspaceFolder}/${config:frontendPath}",
+			},
+			"dependsOn": [
+                "deploy backend"
+            ],
+			"command": "npm run dev",
+			"isBackground": true,
+			"presentation": {
+				"reveal": "always",
+				"panel": "new",
+				"group": "dev"
+			},
+			"problemMatcher": {
+				"owner": "node",
+				"pattern": {
+					"regexp": "[\\s\\S]*"
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "[\\s\\S]Project is running at[\\s\\S]*",
+					"endsPattern": "[\\s\\S]*Project is running at[\\s\\S]*"
+				}
+			},
+		},
+		{
+			"label": "Terminate All Tasks",
+			"command": "echo ${input:terminate}",
+			"type": "shell",
+			"problemMatcher": [],
+            "dependsOn": [
+                "kill node processes"
+            ],
+		},
+		{
+			"label": "kill node processes",
+			"command": "taskkill /f /im node.exe /t",
+			"type": "shell",
+			"problemMatcher": []
+		}
+	],
+	"inputs": [
+		{
+			"id": "terminate",
+			"type": "command",
+			"command": "workbench.action.tasks.terminate",
+			"args": "terminateAll"
+		}
+	]
+}

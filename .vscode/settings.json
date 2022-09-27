@@ -1,0 +1,5 @@
+{
+    //global variable for launch tasks 
+    "backendPath": "radar-backend",
+    "frontendPath": "radar-seed-frontend"
+}
